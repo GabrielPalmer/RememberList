@@ -7,14 +7,16 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		74308CAF21E510E600910875 /* UserController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 74308CAE21E510E600910875 /* UserController.swift */; };
 		74BACC4021E441B900ED5FE7 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 74BACC3F21E441B900ED5FE7 /* AppDelegate.swift */; };
-		74BACC4221E441B900ED5FE7 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 74BACC4121E441B900ED5FE7 /* ViewController.swift */; };
 		74BACC4521E441B900ED5FE7 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 74BACC4321E441B900ED5FE7 /* Main.storyboard */; };
 		74BACC4821E441B900ED5FE7 /* RememberList.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 74BACC4621E441B900ED5FE7 /* RememberList.xcdatamodeld */; };
 		74BACC4A21E441BB00ED5FE7 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 74BACC4921E441BB00ED5FE7 /* Assets.xcassets */; };
 		74BACC4D21E441BB00ED5FE7 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 74BACC4B21E441BB00ED5FE7 /* LaunchScreen.storyboard */; };
 		74BACC5821E441BC00ED5FE7 /* RememberListTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 74BACC5721E441BC00ED5FE7 /* RememberListTests.swift */; };
 		74BACC6321E441BC00ED5FE7 /* RememberListUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 74BACC6221E441BC00ED5FE7 /* RememberListUITests.swift */; };
+		74BACC7121E4469A00ED5FE7 /* UsersTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 74BACC7021E4469A00ED5FE7 /* UsersTableViewController.swift */; };
+		74BACC7321E44B5F00ED5FE7 /* UserEditorViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 74BACC7221E44B5F00ED5FE7 /* UserEditorViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -35,9 +37,9 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		74308CAE21E510E600910875 /* UserController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserController.swift; sourceTree = "<group>"; };
 		74BACC3C21E441B900ED5FE7 /* RememberList.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = RememberList.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		74BACC3F21E441B900ED5FE7 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		74BACC4121E441B900ED5FE7 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
 		74BACC4421E441B900ED5FE7 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		74BACC4721E441B900ED5FE7 /* RememberList.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = RememberList.xcdatamodel; sourceTree = "<group>"; };
 		74BACC4921E441BB00ED5FE7 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -49,6 +51,8 @@
 		74BACC5E21E441BC00ED5FE7 /* RememberListUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = RememberListUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		74BACC6221E441BC00ED5FE7 /* RememberListUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RememberListUITests.swift; sourceTree = "<group>"; };
 		74BACC6421E441BC00ED5FE7 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		74BACC7021E4469A00ED5FE7 /* UsersTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UsersTableViewController.swift; sourceTree = "<group>"; };
+		74BACC7221E44B5F00ED5FE7 /* UserEditorViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserEditorViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -100,8 +104,10 @@
 			isa = PBXGroup;
 			children = (
 				74BACC3F21E441B900ED5FE7 /* AppDelegate.swift */,
-				74BACC4121E441B900ED5FE7 /* ViewController.swift */,
 				74BACC4321E441B900ED5FE7 /* Main.storyboard */,
+				74BACC7021E4469A00ED5FE7 /* UsersTableViewController.swift */,
+				74BACC7221E44B5F00ED5FE7 /* UserEditorViewController.swift */,
+				74308CAE21E510E600910875 /* UserController.swift */,
 				74BACC4921E441BB00ED5FE7 /* Assets.xcassets */,
 				74BACC4B21E441BB00ED5FE7 /* LaunchScreen.storyboard */,
 				74BACC4E21E441BC00ED5FE7 /* Info.plist */,
@@ -260,8 +266,10 @@
 			buildActionMask = 2147483647;
 			files = (
 				74BACC4821E441B900ED5FE7 /* RememberList.xcdatamodeld in Sources */,
-				74BACC4221E441B900ED5FE7 /* ViewController.swift in Sources */,
 				74BACC4021E441B900ED5FE7 /* AppDelegate.swift in Sources */,
+				74308CAF21E510E600910875 /* UserController.swift in Sources */,
+				74BACC7321E44B5F00ED5FE7 /* UserEditorViewController.swift in Sources */,
+				74BACC7121E4469A00ED5FE7 /* UsersTableViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
