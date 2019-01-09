@@ -2,7 +2,7 @@
 //  UserController.swift
 //  RememberList
 //
-//  Created by Gabriel Blaine Palmer on 1/8/19.
+//  Created by Gabriel Blaine Palmer on 1/9/19.
 //  Copyright © 2019 Gabriel Blaine Palmer. All rights reserved.
 //
 
@@ -45,14 +45,6 @@ class UserController {
         }
     }
     
-    func save() {
-        do {
-            try context.save()
-        } catch {
-            print("failed to update User entity")
-        }
-    }
-    
     @discardableResult func createUser(name: String, isAdult: Bool) -> User {
         let entity = NSEntityDescription.entity(forEntityName: "User", in: context)
         let newUser = NSManagedObject(entity: entity!, insertInto: context) as! User
@@ -61,6 +53,14 @@ class UserController {
         newUser.isAdult = isAdult
         
         return newUser
+    }
+    
+    func save() {
+        do {
+            try context.save()
+        } catch {
+            print("failed to update User entity")
+        }
     }
     
     func deleteUser(user: User) {

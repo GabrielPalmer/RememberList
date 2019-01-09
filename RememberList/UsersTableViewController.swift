@@ -9,7 +9,7 @@
 import UIKit
 import CoreData
 
-class UsersTableViewController: UITableViewController {
+class UsersTableViewController: UITableViewController, UserEditorProtocol {
     
     let userController = UserController()
     
@@ -120,6 +120,7 @@ class UsersTableViewController: UITableViewController {
             
             destination.navigationItem.title = "Edit User"
             destination.userController = userController
+            destination.delegate = self
             
             if let indexPath = tableView.indexPathForSelectedRow {
                 destination.user = users[indexPath.row]
@@ -131,17 +132,16 @@ class UsersTableViewController: UITableViewController {
             guard let destination = (segue.destination as? UINavigationController)?.viewControllers.first as? UserEditorViewController else { fatalError() }
             destination.navigationItem.title = "New User"
             destination.userController = userController
+            destination.delegate = self
             destination.user = nil
         default:
             fatalError("Unexpect segue")
         }
     }
     
-    @IBAction func unwindFromUserEditor(segue: UIStoryboardSegue) {
-        guard let source = segue.source as? UserEditorViewController else { fatalError() }
-        
+    func updateUsers(user: User?) {
         //update users array if new entity was added
-        if source.user == nil {
+        if user == nil {
             users = userController.fetchUsers(for: currentFilter)
         }
         

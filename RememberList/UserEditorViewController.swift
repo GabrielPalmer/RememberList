@@ -9,6 +9,10 @@
 import UIKit
 import CoreData
 
+protocol UserEditorProtocol {
+    func updateUsers(user: User?)
+}
+
 class UserEditorViewController: UIViewController, UITextFieldDelegate {
 
     @IBOutlet weak var saveButton: UIBarButtonItem!
@@ -17,6 +21,7 @@ class UserEditorViewController: UIViewController, UITextFieldDelegate {
     @IBOutlet weak var childCheckbox: UIImageView!
     
     var userController: UserController?
+    var delegate: UserEditorProtocol?
     var user: User?
     var adultSelected: Bool = true
     
@@ -25,30 +30,52 @@ class UserEditorViewController: UIViewController, UITextFieldDelegate {
         return appDelegate.persistentContainer.viewContext
     }
     
-    override func viewDidLoad() {
-        super.viewDidLoad()
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        saveButton.isEnabled = false
         
         if let user = user {
             nameTextField.text = user.name
-            saveButton.isEnabled = true
-        } else {
-            saveButton.isEnabled = false
+            adultSelected = user.isAdult
+            updateCheckboxes()
         }
+    }
+    
+    func dismissView() {
+        let isPresentingInAddMode = presentingViewController is UINavigationController
+        
+        if isPresentingInAddMode {
+            dismiss(animated: true, completion: nil)
+        } else if let owningNavigationController = navigationController {
+            owningNavigationController.popViewController(animated: true)
+        } else {
+            fatalError("EditPersonViewController is not in navigation controller")
+        }
+    }
+    
+    func updateCheckboxes() {
+        if adultSelected {
+            adultCheckbox.image = UIImage(named: "checked")
+            childCheckbox.image = UIImage(named: "unchecked")
+        } else {
+            adultCheckbox.image = UIImage(named: "unchecked")
+            childCheckbox.image = UIImage(named: "checked")
+        }
+        
+        
     }
     
     @IBAction func adultCheckboxTapped(_ sender: UITapGestureRecognizer) {
         if !adultSelected {
             adultSelected = true
-            adultCheckbox.image = UIImage(named: "checked")
-            childCheckbox.image = UIImage(named: "unchecked")
+            updateCheckboxes()
         }
     }
     
     @IBAction func childCheckboxTapped(_ sender: UITapGestureRecognizer) {
         if adultSelected {
             adultSelected = false
-            adultCheckbox.image = UIImage(named: "unchecked")
-            childCheckbox.image = UIImage(named: "checked")
+            updateCheckboxes()
         }
     }
     
@@ -77,19 +104,12 @@ class UserEditorViewController: UIViewController, UITextFieldDelegate {
             userController.save()
         }
         
-        performSegue(withIdentifier: "exitSegue", sender: nil)
+        delegate?.updateUsers(user: user)
+        dismissView()
     }
     
     @IBAction func cancelButtonTapped(_ sender: Any) {
-        let isPresentingInAddMode = presentingViewController is UINavigationController
-        
-        if isPresentingInAddMode {
-            dismiss(animated: true, completion: nil)
-        } else if let owningNavigationController = navigationController {
-            owningNavigationController.popViewController(animated: true)
-        } else {
-            fatalError("EditPersonViewController is not in navigation controller")
-        }
+        dismissView()
     }
     
 }

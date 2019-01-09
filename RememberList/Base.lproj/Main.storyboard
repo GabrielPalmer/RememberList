@@ -153,11 +153,9 @@
                         <outlet property="childCheckbox" destination="3jo-Op-ekB" id="eIi-6b-qut"/>
                         <outlet property="nameTextField" destination="nub-L0-hXa" id="pDV-7L-Adg"/>
                         <outlet property="saveButton" destination="2lL-Kd-Qfl" id="mMK-bt-RVB"/>
-                        <segue destination="ksz-8f-0jf" kind="unwind" identifier="exitSegue" unwindAction="unwindFromUserEditorWithSegue:" id="egP-7D-7MT"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="uQ2-hd-CZj" userLabel="First Responder" sceneMemberID="firstResponder"/>
-                <exit id="ksz-8f-0jf" userLabel="Exit" sceneMemberID="exit"/>
                 <tapGestureRecognizer id="WU3-vG-Era" userLabel="Adult Tap Gesture Recognizer">
                     <connections>
                         <action selector="adultCheckboxTapped:" destination="iKg-5J-96K" id="PSO-R1-xfD"/>
